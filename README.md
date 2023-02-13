@@ -12,7 +12,7 @@ Prerequisites
 ### Clone the project
 
 ```shell
-git clone https://github.com/rahulkhatry4/Mapping-API.git
+git clone https://github.com/Suhaan-Bhandary/InterferenceRetrievalApi.git
 ```
 
 ### Create a virtual environment with venv (install virtualenv, if its not installed) inside the project folder
