@@ -1,10 +1,7 @@
 from django.urls import path, include
-from api.views import OwlClass
+from api.views import OwlClassView
 from rest_framework import routers
 
-router = routers.DefaultRouter()
-router.register(r'owl-class', OwlClass)
-
 urlpatterns = [
-  path('', include(router.urls))
+    path('owl/', OwlClassView.as_view())
 ]
