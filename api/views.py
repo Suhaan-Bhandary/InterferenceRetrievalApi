@@ -12,14 +12,18 @@ class OwlClassView(APIView):
     def post(self, request, format=None):
         try:
             classes = create_class()
-            return Response({'message': 'Created node successfully', 'classes': json.dumps(classes)}, status=status.HTTP_200_OK)
+            print(classes)
+            return Response({'message': 'Created node successfully'}, status=status.HTTP_200_OK)
         except Exception as error:
-            return Response({'message': 'Unexpected error', 'error': error}, status=status.HTTP_400_BAD_REQUEST)
+            print(error)
+            return Response({'message': 'Unexpected error'}, status=status.HTTP_400_BAD_REQUEST)
 
     # This method is used to delete a class
     def delete(self, request, format=None):
         try:
             new_classes = delete_class()
-            return Response({'message': 'Created node successfully', 'classes': json.dumps(new_classes)}, status=status.HTTP_200_OK)
+            print(new_classes)
+            return Response({'message': 'Created node successfully'}, status=status.HTTP_200_OK)
         except Exception as error:
-            return Response({'message': 'Unexpected error', 'error': error}, status=status.HTTP_400_BAD_REQUEST)
+            print(error)
+            return Response({'message': 'Unexpected error'}, status=status.HTTP_400_BAD_REQUEST)
