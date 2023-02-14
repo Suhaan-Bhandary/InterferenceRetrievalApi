@@ -1,7 +1,6 @@
+import json
 from api.functions import create_class, delete_class
 from rest_framework.views import Response, APIView, status
-
-# Create your views here.
 
 
 class OwlClassView(APIView):
@@ -13,7 +12,7 @@ class OwlClassView(APIView):
     def post(self, request, format=None):
         try:
             classes = create_class()
-            return Response({'message': 'Created node successfully', 'classes': classes}, status=status.HTTP_200_OK)
+            return Response({'message': 'Created node successfully', 'classes': json.dumps(classes)}, status=status.HTTP_200_OK)
         except Exception as error:
             return Response({'message': 'Unexpected error', 'error': error}, status=status.HTTP_400_BAD_REQUEST)
 
@@ -21,6 +20,6 @@ class OwlClassView(APIView):
     def delete(self, request, format=None):
         try:
             new_classes = delete_class()
-            return Response({'message': 'Created node successfully', 'classes': new_classes}, status=status.HTTP_200_OK)
+            return Response({'message': 'Created node successfully', 'classes': json.dumps(new_classes)}, status=status.HTTP_200_OK)
         except Exception as error:
             return Response({'message': 'Unexpected error', 'error': error}, status=status.HTTP_400_BAD_REQUEST)
