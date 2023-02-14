@@ -54,3 +54,7 @@ def delete_class():
 
     # Save file, add location of the owl file in file='FILE_LOCATION'
     onto.save(file="tech-int.owl")
+
+
+def update_class():
+    pass
