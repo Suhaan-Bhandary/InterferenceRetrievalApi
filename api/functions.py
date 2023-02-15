@@ -1,4 +1,5 @@
-from owlready2 import get_ontology, destroy_entity, Thing
+import pandas as pd
+from owlready2 import get_ontology, destroy_entity, Thing, types
 
 
 def create_class():
@@ -15,7 +16,7 @@ def create_class():
     # -------------------------------------------------------------------------------------------------------
 
     # Create Subclass
-    # <---- Add classname in brackets class SUBCLASS_NAME(CLASS_NAME)
+    # <---- Add spr_class_name in brackets class SUBCLASS_NAME(CLASS_NAME)
     class DrugAssociation(Drug):
         pass
 
@@ -57,4 +58,25 @@ def delete_class():
 
 
 def update_class():
-    pass
+    analysis_data_frame = pd.ExcelFile('MDB2_Analysis.xlsx')
+
+    SPR_label_mapping_data_frame = pd.read_excel(
+        analysis_data_frame, 'SPR Label Mapping')
+    SPR_label_mapping_data_frame.dropna()
+
+    # File handler type, gets a hold to the ontology(OWL FILE)
+    onto = get_ontology(r"spr-owl-data.owl").load()
+
+    for spr_data_row in SPR_label_mapping_data_frame['SPR Label Name'].dropna():
+        # Getting the spr_class_name from the i
+        spr_class_name = spr_data_row.split(': ')[1]
+        print(spr_class_name)
+
+        formatted_spr_class_name = spr_class_name.replace(' ', '_')
+        print(formatted_spr_class_name)
+
+        with onto:
+            my_new_class = types.new_class(formatted_spr_class_name, (Thing,))
+            onto.save(file="spr-owl-data.owl")
+
+    return list(onto.classes())
