@@ -12,200 +12,420 @@
   <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
 </owl:Class>
 
+<owl:Class rdf:about="#CPPipeNozzle">
+  <rdfs:subClassOf rdf:resource="#SPR_Pipe_Nozzle_Data"/>
+</owl:Class>
+
 <owl:Class rdf:about="#SPR_Equipment_Data">
   <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+</owl:Class>
+
+<owl:Class rdf:about="#CPDesignEquipment">
+  <rdfs:subClassOf rdf:resource="#SPR_Equipment_Data"/>
+</owl:Class>
+
+<owl:Class rdf:about="#CPEquipment">
+  <rdfs:subClassOf rdf:resource="#SPR_Equipment_Data"/>
+</owl:Class>
+
+<owl:Class rdf:about="#CPEquipmentComponent">
+  <rdfs:subClassOf rdf:resource="#SPR_Equipment_Data"/>
+</owl:Class>
+
+<owl:Class rdf:about="#CPSmartEquipment">
+  <rdfs:subClassOf rdf:resource="#SPR_Equipment_Data"/>
 </owl:Class>
 
 <owl:Class rdf:about="#SPR_Cabletray_Data">
   <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
 </owl:Class>
 
+<owl:Class rdf:about="#CPRteCableTrayOccur">
+  <rdfs:subClassOf rdf:resource="#SPR_Cabletray_Data"/>
+</owl:Class>
+
+<owl:Class rdf:about="#CPRteCableTrayComponentOcc">
+  <rdfs:subClassOf rdf:resource="#SPR_Cabletray_Data"/>
+</owl:Class>
+
 <owl:Class rdf:about="#SPR_Cableway_Data">
   <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+</owl:Class>
+
+<owl:Class rdf:about="#CPCablewayStraightPathFeat">
+  <rdfs:subClassOf rdf:resource="#SPR_Cableway_Data"/>
+</owl:Class>
+
+<owl:Class rdf:about="#CPCablewayBranchPathFeat">
+  <rdfs:subClassOf rdf:resource="#SPR_Cableway_Data"/>
+</owl:Class>
+
+<owl:Class rdf:about="#CPCablewayEndPathFeat">
+  <rdfs:subClassOf rdf:resource="#SPR_Cableway_Data"/>
+</owl:Class>
+
+<owl:Class rdf:about="#CPCablewaySlantTransFeat">
+  <rdfs:subClassOf rdf:resource="#SPR_Cableway_Data"/>
+</owl:Class>
+
+<owl:Class rdf:about="#CPCablewayTransALPathFeat">
+  <rdfs:subClassOf rdf:resource="#SPR_Cableway_Data"/>
+</owl:Class>
+
+<owl:Class rdf:about="#CPCablewayTurnPathFeat">
+  <rdfs:subClassOf rdf:resource="#SPR_Cableway_Data"/>
+</owl:Class>
+
+<owl:Class rdf:about="#CPCablewayTurnTransFeat">
+  <rdfs:subClassOf rdf:resource="#SPR_Cableway_Data"/>
+</owl:Class>
+
+<owl:Class rdf:about="#CPCablewayAlongLegPathFeat">
+  <rdfs:subClassOf rdf:resource="#SPR_Cableway_Data"/>
 </owl:Class>
 
 <owl:Class rdf:about="#SPR_Conduit_Data">
   <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
 </owl:Class>
 
+<owl:Class rdf:about="#CPRteConduitOccur">
+  <rdfs:subClassOf rdf:resource="#SPR_Conduit_Data"/>
+</owl:Class>
+
+<owl:Class rdf:about="#CPRteConduitComponentOcc ">
+  <rdfs:subClassOf rdf:resource="#SPR_Conduit_Data"/>
+</owl:Class>
+
 <owl:Class rdf:about="#SPR_HVAC_Data">
   <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+</owl:Class>
+
+<owl:Class rdf:about="#CPDuctOccur">
+  <rdfs:subClassOf rdf:resource="#SPR_HVAC_Data"/>
+</owl:Class>
+
+<owl:Class rdf:about="#CPRteDuctComponentOcc ">
+  <rdfs:subClassOf rdf:resource="#SPR_HVAC_Data"/>
 </owl:Class>
 
 <owl:Class rdf:about="#SPR_Weld_Data">
   <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
 </owl:Class>
 
+<owl:Class rdf:about="#CPRtePipeWeld">
+  <rdfs:subClassOf rdf:resource="#SPR_Weld_Data"/>
+</owl:Class>
+
 <owl:Class rdf:about="#SPR_Piping_Data">
   <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+</owl:Class>
+
+<owl:Class rdf:about="#CPRtePipeComponentOcc ">
+  <rdfs:subClassOf rdf:resource="#SPR_Piping_Data"/>
+</owl:Class>
+
+<owl:Class rdf:about="#CPRtePipeInstrumentOcc">
+  <rdfs:subClassOf rdf:resource="#SPR_Piping_Data"/>
+</owl:Class>
+
+<owl:Class rdf:about="#CPRtePipeSpecialtyOcc">
+  <rdfs:subClassOf rdf:resource="#SPR_Piping_Data"/>
+</owl:Class>
+
+<owl:Class rdf:about="#CPMPipeOccur">
+  <rdfs:subClassOf rdf:resource="#SPR_Piping_Data"/>
 </owl:Class>
 
 <owl:Class rdf:about="#SPR_Support_Data">
   <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
 </owl:Class>
 
+<owl:Class rdf:about="#CHgrSupportComponent">
+  <rdfs:subClassOf rdf:resource="#SPR_Support_Data"/>
+</owl:Class>
+
+<owl:Class rdf:about="#CHgrStdComponent">
+  <rdfs:subClassOf rdf:resource="#SPR_Support_Data"/>
+</owl:Class>
+
+<owl:Class rdf:about="#CHgrLogicalComponent">
+  <rdfs:subClassOf rdf:resource="#SPR_Support_Data"/>
+</owl:Class>
+
+<owl:Class rdf:about="#CHgrConnComponent">
+  <rdfs:subClassOf rdf:resource="#SPR_Support_Data"/>
+</owl:Class>
+
 <owl:Class rdf:about="#SPR_Wall_Data">
   <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+</owl:Class>
+
+<owl:Class rdf:about="#SPSWallPart">
+  <rdfs:subClassOf rdf:resource="#SPR_Wall_Data"/>
 </owl:Class>
 
 <owl:Class rdf:about="#SPR_Slab_Data">
   <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
 </owl:Class>
 
+<owl:Class rdf:about="#CSPSSlabEntity">
+  <rdfs:subClassOf rdf:resource="#SPR_Slab_Data"/>
+</owl:Class>
+
 <owl:Class rdf:about="#SPR_Member_Part_Data">
   <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+</owl:Class>
+
+<owl:Class rdf:about="#CSPSMemberPartPrismatic">
+  <rdfs:subClassOf rdf:resource="#SPR_Member_Part_Data"/>
+</owl:Class>
+
+<owl:Class rdf:about="#CSPSMemberPartCurve">
+  <rdfs:subClassOf rdf:resource="#SPR_Member_Part_Data"/>
 </owl:Class>
 
 <owl:Class rdf:about="#SPR_Handrail_Data">
   <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
 </owl:Class>
 
+<owl:Class rdf:about="#CSPSHandrail">
+  <rdfs:subClassOf rdf:resource="#SPR_Handrail_Data"/>
+</owl:Class>
+
 <owl:Class rdf:about="#SPR_Ladder_Data">
   <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+</owl:Class>
+
+<owl:Class rdf:about="#CSPSLadder">
+  <rdfs:subClassOf rdf:resource="#SPR_Ladder_Data"/>
 </owl:Class>
 
 <owl:Class rdf:about="#SPR_Stair_Data">
   <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
 </owl:Class>
 
+<owl:Class rdf:about="#CSPSStair">
+  <rdfs:subClassOf rdf:resource="#SPR_Stair_Data"/>
+</owl:Class>
+
 <owl:Class rdf:about="#SPR_Equipment_Foundation_Data">
   <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+</owl:Class>
+
+<owl:Class rdf:about="#CSPSEquipFoundation">
+  <rdfs:subClassOf rdf:resource="#SPR_Equipment_Foundation_Data"/>
 </owl:Class>
 
 <owl:Class rdf:about="#SPR_Footing_Data">
   <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
 </owl:Class>
 
+<owl:Class rdf:about="#CSPSFooting">
+  <rdfs:subClassOf rdf:resource="#SPR_Footing_Data"/>
+</owl:Class>
+
 <owl:Class rdf:about="#SPR_Footing_Component_Data">
   <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+</owl:Class>
+
+<owl:Class rdf:about="#CSPSFootingComponent">
+  <rdfs:subClassOf rdf:resource="#SPR_Footing_Component_Data"/>
 </owl:Class>
 
 <owl:Class rdf:about="#SPR_Plate_Data">
   <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
 </owl:Class>
 
+<owl:Class rdf:about="#CStructCustomPlatePart">
+  <rdfs:subClassOf rdf:resource="#SPR_Plate_Data"/>
+</owl:Class>
+
 <owl:Class rdf:about="#SPR_Fireproofing_Data">
   <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+</owl:Class>
+
+<owl:Class rdf:about="#CStructInsulation">
+  <rdfs:subClassOf rdf:resource="#SPR_Fireproofing_Data"/>
 </owl:Class>
 
 <owl:Class rdf:about="#SPR_Space_Data">
   <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
 </owl:Class>
 
+<owl:Class rdf:about="#CArea">
+  <rdfs:subClassOf rdf:resource="#SPR_Space_Data"/>
+</owl:Class>
+
+<owl:Class rdf:about="#CZone">
+  <rdfs:subClassOf rdf:resource="#SPR_Space_Data"/>
+</owl:Class>
+
+<owl:Class rdf:about="#CPInterferenceVolume">
+  <rdfs:subClassOf rdf:resource="#SPR_Space_Data"/>
+</owl:Class>
+
 <owl:Class rdf:about="#SPR_Piping_Clamp_Data">
   <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+</owl:Class>
+
+<owl:Class rdf:about="#CPRteMechImpliedItem">
+  <rdfs:subClassOf rdf:resource="#SPR_Piping_Clamp_Data"/>
 </owl:Class>
 
 <owl:Class rdf:about="#SPR_Reference3D_Equipment_Data">
   <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
 </owl:Class>
 
+<owl:Class rdf:about="#CR3DEquipment">
+  <rdfs:subClassOf rdf:resource="#SPR_Reference3D_Equipment_Data"/>
+</owl:Class>
+
+<owl:Class rdf:about="#CR3DEquipmentComponent">
+  <rdfs:subClassOf rdf:resource="#SPR_Reference3D_Equipment_Data"/>
+</owl:Class>
+
 <owl:Class rdf:about="#SPR_Reference3D_Piping_Data">
   <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+</owl:Class>
+
+<owl:Class rdf:about="#CR3DPipe">
+  <rdfs:subClassOf rdf:resource="#SPR_Reference3D_Piping_Data"/>
+</owl:Class>
+
+<owl:Class rdf:about="#CR3DPipeInstrument">
+  <rdfs:subClassOf rdf:resource="#SPR_Reference3D_Piping_Data"/>
+</owl:Class>
+
+<owl:Class rdf:about="#CR3DPipeSpecialty">
+  <rdfs:subClassOf rdf:resource="#SPR_Reference3D_Piping_Data"/>
+</owl:Class>
+
+<owl:Class rdf:about="#CR3DPipingComponent">
+  <rdfs:subClassOf rdf:resource="#SPR_Reference3D_Piping_Data"/>
 </owl:Class>
 
 <owl:Class rdf:about="#SPR_Reference3D_Pipe_Nozzle_Data">
   <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
 </owl:Class>
 
+<owl:Class rdf:about="#CR3DPipeNozzle">
+  <rdfs:subClassOf rdf:resource="#SPR_Reference3D_Pipe_Nozzle_Data"/>
+</owl:Class>
+
 <owl:Class rdf:about="#SPR_Reference3D_Generic_Data">
   <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+</owl:Class>
+
+<owl:Class rdf:about="#CR3DWeld">
+  <rdfs:subClassOf rdf:resource="#SPR_Reference3D_Generic_Data"/>
+</owl:Class>
+
+<owl:Class rdf:about="#CR3DPipeClamp">
+  <rdfs:subClassOf rdf:resource="#SPR_Reference3D_Generic_Data"/>
 </owl:Class>
 
 <owl:Class rdf:about="#SPR_Reference3D_CableTray_Data">
   <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
 </owl:Class>
 
+<owl:Class rdf:about="#CR3DCableTray">
+  <rdfs:subClassOf rdf:resource="#SPR_Reference3D_CableTray_Data"/>
+</owl:Class>
+
 <owl:Class rdf:about="#SPR_Reference3D_Conduit_Data">
   <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+</owl:Class>
+
+<owl:Class rdf:about="#CR3DConduit">
+  <rdfs:subClassOf rdf:resource="#SPR_Reference3D_Conduit_Data"/>
 </owl:Class>
 
 <owl:Class rdf:about="#SPR_Reference3D_HVAC_Data">
   <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
 </owl:Class>
 
+<owl:Class rdf:about="#CR3DDuct">
+  <rdfs:subClassOf rdf:resource="#SPR_Reference3D_HVAC_Data"/>
+</owl:Class>
+
 <owl:Class rdf:about="#SPR_Reference3D_Handrail_Data">
   <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+</owl:Class>
+
+<owl:Class rdf:about="#CR3DHandrail">
+  <rdfs:subClassOf rdf:resource="#SPR_Reference3D_Handrail_Data"/>
 </owl:Class>
 
 <owl:Class rdf:about="#SPR_Reference3D_Ladder_Data">
   <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
 </owl:Class>
 
+<owl:Class rdf:about="#CR3DLadder">
+  <rdfs:subClassOf rdf:resource="#SPR_Reference3D_Ladder_Data"/>
+</owl:Class>
+
 <owl:Class rdf:about="#SPR_Reference3D_Member_Part_Data">
   <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+</owl:Class>
+
+<owl:Class rdf:about="#CR3DMemberPart">
+  <rdfs:subClassOf rdf:resource="#SPR_Reference3D_Member_Part_Data"/>
 </owl:Class>
 
 <owl:Class rdf:about="#SPR_Reference3D_Slab_Data">
   <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
 </owl:Class>
 
+<owl:Class rdf:about="#CR3DSlab">
+  <rdfs:subClassOf rdf:resource="#SPR_Reference3D_Slab_Data"/>
+</owl:Class>
+
 <owl:Class rdf:about="#SPR_Reference3D_Stair_Data">
   <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+</owl:Class>
+
+<owl:Class rdf:about="#CR3DStair">
+  <rdfs:subClassOf rdf:resource="#SPR_Reference3D_Stair_Data"/>
 </owl:Class>
 
 <owl:Class rdf:about="#SPR_Reference3D_Wall_Data">
   <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
 </owl:Class>
 
+<owl:Class rdf:about="#CR3DWall">
+  <rdfs:subClassOf rdf:resource="#SPR_Reference3D_Wall_Data"/>
+</owl:Class>
+
 <owl:Class rdf:about="#SPR_TrenchPart_Data">
   <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+</owl:Class>
+
+<owl:Class rdf:about="#CTrenchPart">
+  <rdfs:subClassOf rdf:resource="#SPR_TrenchPart_Data"/>
 </owl:Class>
 
 <owl:Class rdf:about="#SPR_Belt_Data">
   <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
 </owl:Class>
 
+<owl:Class rdf:about="#CBelt">
+  <rdfs:subClassOf rdf:resource="#SPR_Belt_Data"/>
+</owl:Class>
+
 <owl:Class rdf:about="#SPR_Smart_Plate_Data">
   <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+</owl:Class>
+
+<owl:Class rdf:about="#CSmartPlate">
+  <rdfs:subClassOf rdf:resource="#SPR_Smart_Plate_Data"/>
 </owl:Class>
 
 <owl:Class rdf:about="#SPR_Structural_Bolt_Data">
   <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
 </owl:Class>
 
-<owl:Class rdf:about="#SPR_SIO_Equipment_Data">
-  <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
-</owl:Class>
-
-<owl:Class rdf:about="#SPR_SIO_Piping_Nozzle_Data">
-  <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
-</owl:Class>
-
-<owl:Class rdf:about="#SPR_SIO_Conduit_Nozzle_Data">
-  <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
-</owl:Class>
-
-<owl:Class rdf:about="#SPR_SIO_Equipment_Foundation_Port_Data">
-  <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
-</owl:Class>
-
-<owl:Class rdf:about="#SPR_SIO_HVAC_Port_Data">
-  <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
-</owl:Class>
-
-<owl:Class rdf:about="#SPR_SIO_Cable_Tray_Port_Data">
-  <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
-</owl:Class>
-
-<owl:Class rdf:about="#SPR_SIO_Generic_Data">
-  <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
-</owl:Class>
-
-<owl:Class rdf:about="#SPR_Reference3D_Marine_Plate_Data">
-  <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
-</owl:Class>
-
-<owl:Class rdf:about="#SPR_Reference3D_Marine_Profile_Data">
-  <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
-</owl:Class>
-
-<owl:Class rdf:about="#SPR_Marine_Plate_Data">
-  <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
-</owl:Class>
-
-<owl:Class rdf:about="#SPR_Marine_Profile_Data">
-  <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+<owl:Class rdf:about="#CBoltGroup">
+  <rdfs:subClassOf rdf:resource="#SPR_Structural_Bolt_Data"/>
 </owl:Class>
 
 

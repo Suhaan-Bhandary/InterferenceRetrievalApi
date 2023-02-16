@@ -518,7 +518,13 @@
   <rdfs:subClassOf rdf:resource="SPR_Wall_Data"/>
 </owl:Class>
 
-<owl:Class rdf:about="DrugAssociation"/>
+<owl:Class rdf:about="DrugAssociation">
+  <rdfs:subClassOf rdf:resource="Drug"/>
+</owl:Class>
+
+<owl:Class rdf:about="Drug">
+  <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+</owl:Class>
 
 
 </rdf:RDF>

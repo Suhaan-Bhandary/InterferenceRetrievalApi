@@ -59,7 +59,7 @@ def delete_class():
 
 
 def update_class():
-    analysis_data_frame = pd.ExcelFile('../MDB2_Analysis.xlsx')
+    analysis_data_frame = pd.ExcelFile('MDB2_Analysis.xlsx')
 
     SPR_label_mapping_data_frame = pd.read_excel(
         analysis_data_frame, 'SPR Label Mapping')
