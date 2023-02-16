@@ -428,5 +428,13 @@
   <rdfs:subClassOf rdf:resource="#SPR_Structural_Bolt_Data"/>
 </owl:Class>
 
+<owl:Class rdf:about="#custom_class_name">
+  <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+</owl:Class>
+
+<owl:Class rdf:about="#custom_subclass_name">
+  <rdfs:subClassOf rdf:resource="#custom_class_name"/>
+</owl:Class>
+
 
 </rdf:RDF>

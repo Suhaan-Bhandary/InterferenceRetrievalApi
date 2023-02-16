@@ -3,28 +3,21 @@ from owlready2 import get_ontology, destroy_entity, Thing, types
 
 
 
-def create_class():
+def update_class():
     # File handler type, gets a hold to the ontology(OWL FILE)
-    onto = get_ontology(r"tech-int.owl").load()
+    onto = get_ontology(r"spr-owl-data.owl").load()
 
     # -------------------------------------------------------------------------------------------------------
+    class_name = "custom_class_name"
+    sub_class_name = "custom_subclass_name"
 
-    # Create a class with this handles
     with onto:
-        class Drug(Thing):
-            pass
+            my_new_class = types.new_class(class_name, (Thing,))
+            my_new_subclass = types.new_class(sub_class_name,(my_new_class,))
 
-    # -------------------------------------------------------------------------------------------------------
 
-    # Create Subclass
-    # <---- Add spr_class_name in brackets class SUBCLASS_NAME(CLASS_NAME)
-    class DrugAssociation(Drug):
-        pass
 
-    # -------------------------------------------------------------------------------------------------------
-
-    # Save file, add location of the owl file in file='FILE_LOCATION'
-    onto.save(file="tech-int.owl")
+    onto.save(file="spr-owl-data.owl")
 
     # -------------------------------------------------------------------------------------------------------
 
@@ -55,10 +48,10 @@ def delete_class():
     # -------------------------------------------------------------------------------------------------------
 
     # Save file, add location of the owl file in file='FILE_LOCATION'
-    onto.save(file="tech-int.owl")
+    onto.save(file="spr-owl-data.owl")
 
 
-def update_class():
+def create_class():
     analysis_data_frame = pd.ExcelFile('MDB2_Analysis.xlsx')
 
     SPR_label_mapping_data_frame = pd.read_excel(
