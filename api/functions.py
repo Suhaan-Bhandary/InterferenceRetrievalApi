@@ -2,6 +2,7 @@ import pandas as pd
 from owlready2 import get_ontology, destroy_entity, Thing, types
 
 
+
 def create_class():
     # File handler type, gets a hold to the ontology(OWL FILE)
     onto = get_ontology(r"tech-int.owl").load()
@@ -58,25 +59,52 @@ def delete_class():
 
 
 def update_class():
-    analysis_data_frame = pd.ExcelFile('MDB2_Analysis.xlsx')
+    analysis_data_frame = pd.ExcelFile('../MDB2_Analysis.xlsx')
 
     SPR_label_mapping_data_frame = pd.read_excel(
         analysis_data_frame, 'SPR Label Mapping')
-    SPR_label_mapping_data_frame.dropna()
+
+    SPR_label_mapping_data_frame.dropna(inplace=True)
+
+    SPR_label_mapping_data_frame['SPR Label Name'] = SPR_label_mapping_data_frame['SPR Label Name'].apply(lambda x: x.split(': ')[1])
+    SPR_label_mapping_data_frame['SPR Label Name']  = SPR_label_mapping_data_frame['SPR Label Name'].apply(lambda x: x.replace(' ','_'))
+    
 
     # File handler type, gets a hold to the ontology(OWL FILE)
+    with open('spr-owl-data.owl', 'w') as fp:
+        pass
     onto = get_ontology(r"spr-owl-data.owl").load()
 
-    for spr_data_row in SPR_label_mapping_data_frame['SPR Label Name'].dropna():
-        # Getting the spr_class_name from the i
-        spr_class_name = spr_data_row.split(': ')[1]
-        print(spr_class_name)
+    my_new_class = ""
+    
+    SPR_label_mapping_data_frame_gb = SPR_label_mapping_data_frame.groupby(by=['SPR Label Name'])
 
-        formatted_spr_class_name = spr_class_name.replace(' ', '_')
-        print(formatted_spr_class_name)
-
+    for class_name in SPR_label_mapping_data_frame['SPR Label Name'].unique():
+        sub_class = SPR_label_mapping_data_frame_gb.get_group((class_name))['SP3D Classname'].values
         with onto:
-            my_new_class = types.new_class(formatted_spr_class_name, (Thing,))
-            onto.save(file="spr-owl-data.owl")
+            my_new_class = types.new_class(class_name, (Thing,))
+            
+        if(len(sub_class) > 1):
+            
+            for sub_class_name in sub_class:
+                with onto:
+                    my_new_subclass = types.new_class(sub_class_name,(my_new_class,))
+
+        else:
+            with onto:
+                    my_new_subclass = types.new_class(sub_class[0],(my_new_class,))
+
+        
+            
+            
+        onto.save(file = "spr-owl-data.owl") 
+
+        
+
+    # print(list(onto.classes()))
 
     return list(onto.classes())
+
+
+
+# print(update_class())
