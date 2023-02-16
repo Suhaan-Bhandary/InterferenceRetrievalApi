@@ -40,8 +40,8 @@ def delete_class():
     return onto_classes
 
 
-def create_class():
-    analysis_data_frame = pd.ExcelFile('MDB2_Analysis.xlsx')
+def create_class(file_obj):
+    analysis_data_frame = pd.ExcelFile(file_obj)
 
     SPR_label_mapping_data_frame = pd.read_excel(
         analysis_data_frame, 'SPR Label Mapping')

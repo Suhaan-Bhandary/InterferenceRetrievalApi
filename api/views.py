@@ -11,8 +11,21 @@ class OwlClassView(APIView):
     # This method used to create a class
     def post(self, request, format=None):
         try:
-            classes = create_class()
+            if 'data_file' not in request.FILES:
+                return Response({'message': 'Please Provide a data_file', status: status.HTTP_400_BAD_REQUEST})
+
+            # Get the file from the post request
+            file_obj = request.FILES['data_file']
+
+            # Check if the file is of correct extension
+            file_name = str(file_obj)
+            if not file_name.endswith('.xlsx'):
+                return Response({'message': 'Please upload a File with .xlsx extension'})
+
+            # Create class using the file object
+            classes = create_class(file_obj)
             print(classes)
+
             return Response({'message': 'Created node successfully'}, status=status.HTTP_200_OK)
         except Exception as error:
             print(error)
