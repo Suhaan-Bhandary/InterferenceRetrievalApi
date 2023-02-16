@@ -30,8 +30,20 @@ class OwlClassView(APIView):
 
     def put(self, request, format=None):
         try:
-            classes = update_class()
+            if 'class_name' not in request.data or 'sub_class_name' not in request.data:
+                return Response(
+                    {'message': 'Please provide class_name and sub_class_name in request body'},
+                    status=status.HTTP_400_BAD_REQUEST
+                )
+
+            # Get the data from the body of the request
+            class_name = request.data['class_name']
+            sub_class_name = request.data['sub_class_name']
+
+            # Update the owl
+            classes = update_class(class_name, sub_class_name)
             print(classes)
+
             return Response({'message': 'Updated Node Successfully'}, status=status.HTTP_200_OK)
         except Exception as error:
             print(error)

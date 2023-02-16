@@ -2,20 +2,13 @@ import pandas as pd
 from owlready2 import get_ontology, destroy_entity, Thing, types
 
 
-
-def update_class():
+def update_class(class_name, sub_class_name):
     # File handler type, gets a hold to the ontology(OWL FILE)
     onto = get_ontology(r"spr-owl-data.owl").load()
 
-    # -------------------------------------------------------------------------------------------------------
-    class_name = "custom_class_name"
-    sub_class_name = "custom_subclass_name"
-
     with onto:
-            my_new_class = types.new_class(class_name, (Thing,))
-            my_new_subclass = types.new_class(sub_class_name,(my_new_class,))
-
-
+        my_new_class = types.new_class(class_name, (Thing,))
+        my_new_subclass = types.new_class(sub_class_name, (my_new_class,))
 
     onto.save(file="spr-owl-data.owl")
 
@@ -37,18 +30,14 @@ def delete_class():
         destroy_entity(onto.Drug)
     except:
         print('Already Deleted')
-        print()
-
-    # -------------------------------------------------------------------------------------------------------
-
-    # To view deleted classes and subclasses, use onto.classes return generated which can be listed out with using list(onto.classes)
-    # At the bottom you can see deleted classes, in the console
-    print(list(onto.classes()))
 
     # -------------------------------------------------------------------------------------------------------
 
     # Save file, add location of the owl file in file='FILE_LOCATION'
     onto.save(file="spr-owl-data.owl")
+
+    onto_classes = list(onto.classes())
+    return onto_classes
 
 
 def create_class():
@@ -59,9 +48,10 @@ def create_class():
 
     SPR_label_mapping_data_frame.dropna(inplace=True)
 
-    SPR_label_mapping_data_frame['SPR Label Name'] = SPR_label_mapping_data_frame['SPR Label Name'].apply(lambda x: x.split(': ')[1])
-    SPR_label_mapping_data_frame['SPR Label Name']  = SPR_label_mapping_data_frame['SPR Label Name'].apply(lambda x: x.replace(' ','_'))
-    
+    SPR_label_mapping_data_frame['SPR Label Name'] = SPR_label_mapping_data_frame['SPR Label Name'].apply(
+        lambda x: x.split(': ')[1])
+    SPR_label_mapping_data_frame['SPR Label Name'] = SPR_label_mapping_data_frame['SPR Label Name'].apply(
+        lambda x: x.replace(' ', '_'))
 
     # File handler type, gets a hold to the ontology(OWL FILE)
     with open('spr-owl-data.owl', 'w') as fp:
@@ -69,35 +59,32 @@ def create_class():
     onto = get_ontology(r"spr-owl-data.owl").load()
 
     my_new_class = ""
-    
-    SPR_label_mapping_data_frame_gb = SPR_label_mapping_data_frame.groupby(by=['SPR Label Name'])
+
+    SPR_label_mapping_data_frame_gb = SPR_label_mapping_data_frame.groupby(by=[
+                                                                           'SPR Label Name'])
 
     for class_name in SPR_label_mapping_data_frame['SPR Label Name'].unique():
-        sub_class = SPR_label_mapping_data_frame_gb.get_group((class_name))['SP3D Classname'].values
+        sub_class = SPR_label_mapping_data_frame_gb.get_group((class_name))[
+            'SP3D Classname'].values
         with onto:
             my_new_class = types.new_class(class_name, (Thing,))
-            
-        if(len(sub_class) > 1):
-            
+
+        if (len(sub_class) > 1):
+
             for sub_class_name in sub_class:
                 with onto:
-                    my_new_subclass = types.new_class(sub_class_name,(my_new_class,))
+                    my_new_subclass = types.new_class(
+                        sub_class_name, (my_new_class,))
 
         else:
             with onto:
-                    my_new_subclass = types.new_class(sub_class[0],(my_new_class,))
+                my_new_subclass = types.new_class(
+                    sub_class[0], (my_new_class,))
 
-        
-            
-            
-        onto.save(file = "spr-owl-data.owl") 
+        onto.save(file="spr-owl-data.owl")
 
-        
-
-    # print(list(onto.classes()))
-
-    return list(onto.classes())
-
+    onto_classes = list(onto.classes())
+    return onto_classes
 
 
 # print(update_class())
