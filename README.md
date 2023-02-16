@@ -1,4 +1,4 @@
-# Inference based retrieval in own using NLP
+# Business information modelling and inference based retrieval in owl using NLP
 
 ## Project Setup
 
