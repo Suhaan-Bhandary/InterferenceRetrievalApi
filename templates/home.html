@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home</title>
+
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'home/styles.css' %}" />
+    <script src="{% static 'home/script.js' %}" defer></script>
+  </head>
+  <body>
+    <h1>Client Home</h1>
+
+    <div>
+      <h2>Update Owl</h2>
+
+      <input
+        type="text"
+        id="update_class_name"
+        name="class_name"
+        placeholder="Class Name"
+      />
+      <input
+        type="text"
+        id="update_sub_class_name"
+        name="sub_class_name"
+        placeholder="Sub Class Name"
+      />
+      <input
+        type="text"
+        id="update_relationship"
+        name="relationship"
+        placeholder="Relation Ship"
+      />
+
+      <button id="updateButton">Update</button>
+    </div>
+
+    <form id="createForm">
+      <h2>Create Owl</h2>
+      <input id="create_date_file" type="file" name="data_file" />
+      <button type="submit" id="createButton">Create</button>
+    </form>
+
+    <div>
+      <h2>Delete Owl</h2>
+      <input
+        type="text"
+        id="delete_class_name"
+        name="class_name"
+        placeholder="Class or Sub Class Name"
+      />
+      <button id="deleteButton">Delete</button>
+    </div>
+
+    <div>
+      <h2>Read Owl</h2>
+      <input type="text" id="query" name="query" placeholder="Enter Query" />
+      <button id="queryButton">Get Query Result</button>
+    </div>
+  </body>
+</html>

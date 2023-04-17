@@ -34,6 +34,8 @@ class OwlClassView(APIView):
     # This method is used to delete a class
     def delete(self, request, format=None):
         try:
+            print(request.data)
+
             new_classes = delete_class()
             print(new_classes)
             return Response({'message': 'Created node successfully'}, status=status.HTTP_200_OK)
@@ -43,6 +45,7 @@ class OwlClassView(APIView):
 
     def put(self, request, format=None):
         try:
+            print("hi")
             if 'class_name' not in request.data or 'sub_class_name' not in request.data:
                 return Response(
                     {'message': 'Please provide class_name and sub_class_name in request body'},
@@ -52,6 +55,8 @@ class OwlClassView(APIView):
             # Get the data from the body of the request
             class_name = request.data['class_name']
             sub_class_name = request.data['sub_class_name']
+
+            print("hiiiii")
 
             # Update the owl
             classes = update_class(class_name, sub_class_name)
