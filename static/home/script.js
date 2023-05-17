@@ -1,56 +1,60 @@
 // Variables
-const updateButton = document.getElementById('updateButton');
-const createForm = document.getElementById('createForm');
-const deleteButton = document.getElementById('deleteButton');
+const updateButton = document.getElementById("updateButton");
+const createForm = document.getElementById("createForm");
+const deleteButton = document.getElementById("deleteButton");
 
-updateButton.addEventListener('click', () => {
-  const class_name = document.getElementById('update_class_name').value;
-  const sub_class_name = document.getElementById('update_sub_class_name').value;
-  const relationship = document.getElementById('update_relationship').value;
-
+updateButton.addEventListener("click", () => {
+  const class_name = document.getElementById("update_class_name").value;
+  const sub_class_name = document.getElementById("update_sub_class_name").value;
+  const relationship = document.getElementById("update_relationship").value;
+  const domain = document.getElementById("update_domain").value;
+  const range = document.getElementById("update_range").value;
+  console.log(domain);
   const formData = {
     class_name,
     sub_class_name,
     relationship,
+    domain,
+    range,
   };
 
   console.log(formData);
 
-  fetch('/api/owl/', {
-    method: 'PUT',
+  fetch("/api/owl/", {
+    method: "PUT",
     body: JSON.stringify(formData),
-    headers: { 'Content-Type': 'application/json' },
+    headers: { "Content-Type": "application/json" },
   }).then(() => {
-    alert('Updated');
+    alert("Updated");
   });
 });
 
-createForm.addEventListener('submit', (event) => {
+createForm.addEventListener("submit", (event) => {
   event.preventDefault();
 
   const formData = new FormData();
-  const data_file = document.getElementById('create_date_file');
-  formData.append('data_file', data_file.files[0]);
+  const data_file = document.getElementById("create_date_file");
+  formData.append("data_file", data_file.files[0]);
 
-  fetch('/api/owl/', {
-    method: 'POST',
+  fetch("/api/owl/", {
+    method: "POST",
     body: formData,
   }).then(() => {
-    alert('Created');
+    alert("Created");
   });
 });
 
-deleteButton.addEventListener('click', () => {
-  const class_name = document.getElementById('delete_class_name').value;
+deleteButton.addEventListener("click", () => {
+  const class_name = document.getElementById("delete_class_name").value;
   const formData = { class_name };
 
   console.log(formData);
 
-  fetch('/api/owl/', {
-    method: 'DELETE',
+  fetch("/api/owl/", {
+    method: "DELETE",
     body: JSON.stringify(formData),
-    headers: { 'Content-Type': 'application/json' },
+    headers: { "Content-Type": "application/json" },
   }).then(() => {
-    alert('Deleted');
+    alert("Deleted");
   });
 });

@@ -1,14 +1,24 @@
 import pandas as pd
-from owlready2 import get_ontology, destroy_entity, Thing, types
+from owlready2 import get_ontology, destroy_entity, Thing, types, owl
+import ontospy
+from ontospy.gendocs.viz.viz_html_single import *
 
 
-def update_class(class_name, sub_class_name):
+def update_class(class_name, sub_class_name, relationship, domain, range):
     # File handler type, gets a hold to the ontology(OWL FILE)
     onto = get_ontology(r"spr-owl-data.owl").load()
 
     with onto:
         my_new_class = types.new_class(class_name, (Thing,))
         my_new_subclass = types.new_class(sub_class_name, (my_new_class,))
+        new_property = type(relationship, (owl.ObjectProperty,), {
+                            'domain': [onto[domain]], 'range': [onto[range]]})
+
+    g = ontospy.Ontospy(r"spr-owl-data.owl")
+
+    v = HTMLVisualizer(g)  # => instantiate the visualization object
+    v.build()  # => render visualization. You can pass an 'output_path' parameter too
+    v.preview()  # => open in browser
 
     onto.save(file="spr-owl-data.owl")
 
@@ -20,14 +30,14 @@ def update_class(class_name, sub_class_name):
     return onto_classes
 
 
-def delete_class():
-    onto = get_ontology(r"tech-int.owl").load()
-
+def delete_class(class_name):
+    onto = get_ontology(r"spr-owl-data.owl").load()
+    entity = onto[class_name]
     # -------------------------------------------------------------------------------------------------------
 
     # Delete class or subclasses
     try:
-        destroy_entity(onto.Drug)
+        destroy_entity(entity)
     except:
         print('Already Deleted')
 
