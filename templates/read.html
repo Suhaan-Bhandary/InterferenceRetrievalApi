@@ -10,19 +10,21 @@
 
 <!-- Add body data -->
 {% block body %}
-<div class="form-container">
-  <form class="read-form" id="queryForm">
-    <h2>Search Query [Read Owl]</h2>
-    <div class="input-field input-row">
-      <input type="text" id="query" name="query" placeholder="Enter Query" />
-      <button class="default-button" id="queryButton">Search</button>
-    </div>
-    <p id="queryResult">Search Something...</p>
-  </form>
+<div class="container container-block">
+  <div class="form-container form-block">
+    <form class="read-form" id="queryForm">
+      <h2>Search Query [Read Owl]</h2>
+      <div class="input-field input-row">
+        <input type="text" id="query" name="query" placeholder="Enter Query" />
+        <button class="default-button" id="queryButton">Search</button>
+      </div>
+      <p id="queryResult">Search Something...</p>
+    </form>
 
-  <div class="summary">
-    <h2>Summary</h2>
-    <button class="default-button" id="dataButton">Get Summary</button>
+    <div class="summary">
+      <h2>Summary</h2>
+      <button class="default-button" id="dataButton">Get Summary</button>
+    </div>
   </div>
 </div>
 {% endblock %}

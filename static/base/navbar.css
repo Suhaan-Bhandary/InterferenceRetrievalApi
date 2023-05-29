@@ -12,6 +12,8 @@
   box-shadow: var(--box-shadow);
 
   background-color: rgb(var(--bg-white));
+
+  z-index: 10000;
 }
 
 .base-nav > ul {
