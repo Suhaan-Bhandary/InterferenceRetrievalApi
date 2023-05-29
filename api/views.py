@@ -82,7 +82,7 @@ class UserQueryClass(APIView):
         try:
             user_text = request.data['user_text']
             data = get_user_query_output(user_text)
-
+            print(data)
             return Response({'message': 'Successfully', "data": data}, status=status.HTTP_200_OK)
         except Exception as error:
             print(error)
