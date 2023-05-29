@@ -1,0 +1,28 @@
+{% extends "./base.html" %}
+
+<!-- Add to the header -->
+{% block header %}
+<title>Read</title>
+{% load static %}
+<link rel="stylesheet" href="{% static 'read/styles.css' %}" />
+<script src="{% static 'read/script.js' %}" defer></script>
+{% endblock %}
+
+<!-- Add body data -->
+{% block body %}
+<div class="form-container">
+  <form class="read-form" id="queryForm">
+    <h2>Search Query [Read Owl]</h2>
+    <div class="input-field input-row">
+      <input type="text" id="query" name="query" placeholder="Enter Query" />
+      <button class="default-button" id="queryButton">Search</button>
+    </div>
+    <p id="queryResult">Search Something...</p>
+  </form>
+
+  <div class="summary">
+    <h2>Summary</h2>
+    <button class="default-button" id="dataButton">Get Summary</button>
+  </div>
+</div>
+{% endblock %}

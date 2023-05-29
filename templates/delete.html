@@ -1,0 +1,27 @@
+{% extends "./base.html" %}
+
+<!-- Add to the header -->
+{% block header %}
+<title>delete</title>
+{% load static %}
+<link rel="stylesheet" href="{% static 'delete/styles.css' %}" />
+<script src="{% static 'delete/script.js' %}" defer></script>
+{% endblock %}
+
+<!-- Add body data -->
+{% block body %}
+<div class="form-container">
+  <div>
+    <h2>Delete Owl</h2>
+    <div class="input-field input-row">
+      <input
+        type="text"
+        id="delete_class_name"
+        name="class_name"
+        placeholder="Class or Sub Class Name"
+      />
+      <button class="default-button" id="deleteButton">Delete</button>
+    </div>
+  </div>
+</div>
+{% endblock %}

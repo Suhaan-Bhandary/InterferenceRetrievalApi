@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    {% block header %}
+    <title>Home</title>
+    {% endblock %}
+
+    <!-- Load static files -->
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'base/styles.css' %}" />
+    <link rel="stylesheet" href="{% static 'base/navbar.css' %}" />
+  </head>
+  <body>
+    <header class="base-header">
+      <h1>Owl Database</h1>
+      <nav class="base-nav">
+        <ul>
+          <li><a href="/">Create</a></li>
+          <li><a href="/read">Read</a></li>
+          <li><a href="/update">Update</a></li>
+          <li><a href="/delete">Delete</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <div class="container">
+      {% block body %}
+      <title>Home</title>
+      {% endblock %}
+    </div>
+  </body>
+</html>

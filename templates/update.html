@@ -1,0 +1,66 @@
+{% extends "./base.html" %}
+
+<!-- Add to the header -->
+{% block header %}
+<title>update</title>
+{% load static %}
+<link rel="stylesheet" href="{% static 'update/styles.css' %}" />
+<script src="{% static 'update/script.js' %}" defer></script>
+{% endblock %}
+
+<!-- Add body data -->
+{% block body %}
+<div class="form-container">
+  <div>
+    <h2>Update</h2>
+    <div class="input-field">
+      <label for="class_name">Class Name</label>
+      <input
+        type="text"
+        id="update_class_name"
+        name="class_name"
+        placeholder="Class Name"
+      />
+    </div>
+
+    <div class="input-field">
+      <label for="sub_class_name">Sub Class Name</label>
+      <input
+        type="text"
+        id="update_sub_class_name"
+        name="sub_class_name"
+        placeholder="Sub Class Name"
+      />
+    </div>
+
+    <div class="input-field">
+      <label for="relationship">Relationship</label>
+      <input
+        type="text"
+        id="update_relationship"
+        name="relationship"
+        placeholder="Relationship"
+      />
+    </div>
+
+    <div class="input-field">
+      <label for="domain">Domain</label>
+      <input
+        type="text"
+        id="update_domain"
+        name="domain"
+        placeholder="Domain"
+      />
+    </div>
+
+    <div class="input-field">
+      <label for="range">Range</label>
+      <input type="text" id="update_range" name="range" placeholder="Range" />
+    </div>
+
+    <button class="default-button button-middle" id="updateButton">
+      Update
+    </button>
+  </div>
+</div>
+{% endblock %}
