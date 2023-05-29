@@ -1,12 +1,14 @@
 import json
-from api.functions import create_class, delete_class, update_class
+from api.functions import create_class, delete_class, update_class, get_data_summary, get_user_query_output
 from rest_framework.views import Response, APIView, status
+import os
+import sys
 
 
 class OwlClassView(APIView):
     def get(self, request, format=None):
-        # TODO: Will return information about the given node
-        return Response({'message': 'Work in progress...'}, status=status.HTTP_200_OK)
+        get_data_summary()
+        return Response({'message': 'Success'}, status=status.HTTP_200_OK)
 
     # This method used to create a class
     def post(self, request, format=None):
@@ -45,11 +47,11 @@ class OwlClassView(APIView):
     def put(self, request, format=None):
         try:
 
-            if 'class_name' not in request.data or 'sub_class_name' not in request.data:
-                return Response(
-                    {'message': 'Please provide class_name and sub_class_name in request body'},
-                    status=status.HTTP_400_BAD_REQUEST
-                )
+            # if 'class_name' not in request.data or 'sub_class_name' not in request.data:
+            #     return Response(
+            #         {'message': 'Please provide class_name and sub_class_name in request body'},
+            #         status=status.HTTP_400_BAD_REQUEST
+            #     )
 
             # Get the data from the body of the request
             print(request.data)
@@ -67,6 +69,21 @@ class OwlClassView(APIView):
                 class_name, sub_class_name, relationship, domain, range)
 
             return Response({'message': 'Updated Node Successfully'}, status=status.HTTP_200_OK)
+        except Exception as error:
+            print(error)
+            exc_type, exc_obj, exc_tb = sys.exc_info()
+            fname = os.path.split(exc_tb.tb_frame.f_code.co_filename)[1]
+            print(exc_type, fname, exc_tb.tb_lineno)
+            return Response({'message': 'Unexpected error'}, status=status.HTTP_400_BAD_REQUEST)
+
+
+class UserQueryClass(APIView):
+    def post(self, request, format=None):
+        try:
+            user_text = request.data['user_text']
+            data = get_user_query_output(user_text)
+
+            return Response({'message': 'Successfully', "data": data}, status=status.HTTP_200_OK)
         except Exception as error:
             print(error)
             return Response({'message': 'Unexpected error'}, status=status.HTTP_400_BAD_REQUEST)
